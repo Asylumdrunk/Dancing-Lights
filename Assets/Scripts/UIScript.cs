@@ -9,6 +9,8 @@ public class UIScript : MonoBehaviour {
 	// Use this for initialization
 	[SerializeField]
 	public CanvasGroup canvasGroup;
+    [SerializeField]
+    public lightCounter LightCounter;
 	private GameObject baseLight;
 	private GameObject newLight;
 	private Vector3 mousePos;
@@ -35,7 +37,7 @@ public class UIScript : MonoBehaviour {
 		}
 		if (gameObject.name == "endScreenText") {
 			textBox.text = "Congratulations! You have completed this small project while only using " 
-				+ GlobalVariables.lightCounter + " torches!";
+			+ LightCounter._lightCounter + " torches!";
 		}
 		if (instructionsStep && gameObject.tag == "Text" && gameObject.name == "Instructions") {
 			textBox.text = "Okay, that should allow you to see a bit of your situation. You can move it around to see more, " +
@@ -52,7 +54,7 @@ public class UIScript : MonoBehaviour {
 			mousePos.z = 10;
 			mousePos = Camera.main.ScreenToWorldPoint (mousePos);
 			newLight = Instantiate (baseLight, mousePos, Quaternion.identity) as GameObject;
-			GlobalVariables.lightCounter++;
+			LightCounter._lightCounter++;
 			changeInstructionText ();
 		} else if (gameObject.name == "changeGameState") {
 			GlobalVariables.gameState = true;

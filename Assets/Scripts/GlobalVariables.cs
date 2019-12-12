@@ -11,12 +11,9 @@ public class GlobalVariables : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (!created) {
-			DontDestroyOnLoad (gameObject);
 			created = true;
 			gameState = false;
 			lightCounter = 0;
-		}
 	}
 	
 	// Update is called once per frame
